@@ -1,0 +1,20 @@
+[Unit]
+Description=Stock API Service
+After=network.target mongod.service redis-server.service
+Wants=mongod.service redis-server.service
+
+[Service]
+Type=simple
+User=stockapi
+Group=stockapi
+WorkingDirectory=/opt/stock-api
+Environment=PYTHONPATH=/opt/stock-api
+Environment=FLASK_ENV=production
+ExecStart=/opt/stock-api/venv/bin/gunicorn --bind 0.0.0.0:8000 --workers 4 --timeout 120 --access-logfile - --error-logfile - run:app
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
