@@ -6,7 +6,7 @@ sudo apt install -y redis-server
 # Configuration Redis
 sudo sed -i 's/bind 127.0.0.1 ::1/bind 0.0.0.0/' /etc/redis/redis.conf
 sudo sed -i 's/protected-mode yes/protected-mode no/' /etc/redis/redis.conf
-sudo sed -i 's/# requirepass foobared/requirepass redis2025/' /etc/redis/redis.conf
+sudo sed -i 's/# requirepass foobared/requirepass xxxxxxxx/' /etc/redis/redis.conf
 
 # Configuration cache
 sudo tee -a /etc/redis/redis.conf << 'EOF'

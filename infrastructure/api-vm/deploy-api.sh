@@ -37,13 +37,13 @@ if [ ! -f .env ]; then
         echo "⚠️  .env.example non trouvé, création d'un .env par défaut"
         sudo -u stockapi cat > .env << 'ENVFILE'
 # Configuration MongoDB
-MONGODB_URI=mongodb://stockadmin:mongodb2025@localhost:27017/stock_management?authSource=admin
+MONGODB_URI=mongodb://stockadmin:xxxxxxxxxxxx@localhost:27017/stock_management?authSource=admin
 MONGODB_DB=stock_management
 
 # Configuration Redis
 REDIS_HOST=localhost
 REDIS_PORT=6379
-REDIS_PASSWORD=redis2025
+REDIS_PASSWORD=xxxxxxxx
 REDIS_DB=0
 REDIS_TTL=3600
 

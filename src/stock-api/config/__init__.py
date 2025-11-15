@@ -1,14 +1,14 @@
 import os
 from datetime import timedelta
-
+# il faut penser mettre un mot de passe pour mongodb et redis
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-production')
-    MONGODB_URI = os.environ.get('MONGODB_URI', 'mongodb://stockadmin:mongodb2025@localhost:27017/stock_management?authSource=admin')
+    MONGODB_URI = os.environ.get('MONGODB_URI', 'mongodb://stockadmin:xxxxx@localhost:27017/stock_management?authSource=admin')
     MONGODB_DB = os.environ.get('MONGODB_DB', 'stock_management')
     
     REDIS_HOST = os.environ.get('REDIS_HOST', 'localhost')
     REDIS_PORT = int(os.environ.get('REDIS_PORT', 6379))
-    REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD', 'redis2025')
+    REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD', 'XXXXXX')
     REDIS_DB = int(os.environ.get('REDIS_DB', 0))
     REDIS_TTL = int(os.environ.get('REDIS_TTL', 3600))  # 1 heure
     

@@ -21,7 +21,7 @@ sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/' /etc/mongod.conf
 mongosh admin --eval '
 db.createUser({
   user: "stockadmin",
-  pwd: "mongodb2025",
+  pwd: "xxxxxxxxxxx",
   roles: [ { role: "root", db: "admin" } ]
 })'
 
