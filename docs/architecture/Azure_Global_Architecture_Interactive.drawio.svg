@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="2000">
+  <title>Azure Cloud Architecture </title>
+  <desc>Deploy Kong API Gateway OSS </desc>
+
+  <!-- Cloud Header -->
+  <rect x="0" y="0" width="2200" height="80" fill="#0078D4" stroke="#005A9E"/>
+  <text x="100" y="40" font-size="24" fill="white" font-weight="bold">☁️ Azure Cloud Architecture - Services Officiels</text>
+
+  <!-- Resource Groups -->
+  <rect x="50" y="100" width="2100" height="1800" fill="#F8F9FA" stroke="#0078D4" stroke-width="3" rx="10" ry="10"/>
+  <text x="70" y="130" font-size="18" fill="#0078D4" font-weight="bold">Resource Group: Production-EU-West</text>
+
+  <!-- VNet Container -->
+  <rect x="100" y="160" width="2000" height="1700" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" rx="15" ry="15"/>
+  <text x="120" y="190" font-size="16" font-weight="bold">Virtual Network: vnet-prod-001 (10.0.0.0/16)</text>
+
+  <!-- ==================== -->
+  <!-- VM1 - API SERVICES -->
+  <!-- ==================== -->
+  <rect x="150" y="220" width="500" height="500" fill="#BBDEFB" stroke="#1976D2" stroke-width="2" rx="8" ry="8"/>
+  <text x="160" y="240" font-size="14" font-weight="bold">🔷 Subnet API (10.0.1.0/24)</text>
+
+  <rect x="170" y="280" width="460" height="430" fill="#FFFFFF" stroke="#1976D2" stroke-width="2" rx="10" ry="10" filter="url(#shadow)"/>
+  <text x="180" y="300" font-size="12" font-weight="bold">🖥️ VM1 - API Services (10.0.1.10)</text>
+  
+  <!-- Services API avec Logos -->
+  <rect x="190" y="330" width="120" height="80" fill="#E3F2FD" stroke="#1976D2" rx="5" ry="5"/>
+  <text x="195" y="355" font-size="10" font-weight="bold">🟢 Nginx</text>
+  <text x="195" y="370" font-size="9">Port: 8000</text>
+  <text x="195" y="385" font-size="8">Reverse Proxy</text>
+  
+  <rect x="320" y="330" width="120" height="80" fill="#E3F2FD" stroke="#1976D2" rx="5" ry="5"/>
+  <text x="325" y="355" font-size="10" font-weight="bold">🐍 Flask</text>
+  <text x="325" y="370" font-size="9">Port: 5000</text>
+  <text x="325" y="385" font-size="8">API Python</text>
+  
+  <rect x="190" y="420" width="120" height="80" fill="#FFCDD2" stroke="#D32F2F" rx="5" ry="5"/>
+  <text x="195" y="445" font-size="10" font-weight="bold">🔴 Redis</text>
+  <text x="195" y="460" font-size="9">Port: 6379</text>
+  <text x="195" y="475" font-size="8">Cache & Session</text>
+  
+  <rect x="320" y="420" width="120" height="80" fill="#C8E6C9" stroke="#388E3C" rx="5" ry="5"/>
+  <text x="325" y="445" font-size="10" font-weight="bold">🍃 MongoDB</text>
+  <text x="325" y="460" font-size="9">Port: 27017</text>
+  <text x="325" y="475" font-size="8">Base de données</text>
+
+  <!-- ==================== -->
+  <!-- VM2 - KONG GATEWAY -->
+  <!-- ==================== -->
+  <rect x="700" y="220" width="500" height="500" fill="#FFECB3" stroke="#FFA000" stroke-width="2" rx="8" ry="8"/>
+  <text x="710" y="240" font-size="14" font-weight="bold">🔶 Subnet Kong (10.0.2.0/24)</text>
+
+  <rect x="720" y="280" width="460" height="430" fill="#FFFFFF" stroke="#FFA000" stroke-width="2" rx="10" ry="10" filter="url(#shadow)"/>
+  <text x="730" y="300" font-size="12" font-weight="bold">🖥️ VM2 - Kong Gateway (10.0.2.10)</text>
+  
+  <!-- Services Kong avec Logos -->
+  <rect x="740" y="330" width="120" height="80" fill="#FFF3E0" stroke="#FFA000" rx="5" ry="5"/>
+  <text x="745" y="355" font-size="10" font-weight="bold">🦍 Kong</text>
+  <text x="745" y="370" font-size="9">Gateway</text>
+  <text x="745" y="385" font-size="8">API Management</text>
+  
+  <rect x="880" y="330" width="120" height="80" fill="#FFF3E0" stroke="#FFA000" rx="5" ry="5"/>
+  <text x="885" y="355" font-size="10" font-weight="bold">🦍 Kong</text>
+  <text x="885" y="370" font-size="9">Admin API</text>
+  <text x="885" y="385" font-size="8">Port: 8001</text>
+  
+  <rect x="740" y="420" width="120" height="80" fill="#FFF3E0" stroke="#FFA000" rx="5" ry="5"/>
+  <text x="745" y="445" font-size="10" font-weight="bold">📊 Konga</text>
+  <text x="745" y="460" font-size="9">Dashboard</text>
+  <text x="745" y="475" font-size="8">UI Management</text>
+  
+  <rect x="880" y="420" width="120" height="80" fill="#4DB6AC" stroke="#00796B" rx="5" ry="5"/>
+  <text x="885" y="445" font-size="10" font-weight="bold">🐘 PostgreSQL</text>
+  <text x="885" y="460" font-size="9">Port: 5432</text>
+  <text x="885" y="475" font-size="8">Database</text>
+
+  <!-- ==================== -->
+  <!-- VM3 - MONITORING -->
+  <!-- ==================== -->
+  <rect x="1250" y="220" width="500" height="500" fill="#C8E6C9" stroke="#388E3C" stroke-width="2" rx="8" ry="8"/>
+  <text x="1260" y="240" font-size="14" font-weight="bold">🔵 Subnet Monitoring (10.0.3.0/24)</text>
+
+  <rect x="1270" y="280" width="460" height="430" fill="#FFFFFF" stroke="#388E3C" stroke-width="2" rx="10" ry="10" filter="url(#shadow)"/>
+  <text x="1280" y="300" font-size="12" font-weight="bold">🖥️ VM3 - Monitoring (10.0.3.10)</text>
+  
+  <!-- Services Monitoring avec Logos -->
+  <rect x="1290" y="330" width="120" height="80" fill="#E8F5E8" stroke="#388E3C" rx="5" ry="5"/>
+  <text x="1295" y="355" font-size="10" font-weight="bold">🔥 Prometheus</text>
+  <text x="1295" y="370" font-size="9">Metrics</text>
+  <text x="1295" y="385" font-size="8">Time Series DB</text>
+  
+  <rect x="1430" y="330" width="120" height="80" fill="#E8F5E8" stroke="#388E3C" rx="5" ry="5"/>
+  <text x="1435" y="355" font-size="10" font-weight="bold">🚨 Alertmanager</text>
+  <text x="1435" y="370" font-size="9">Alerts</text>
+  <text x="1435" y="385" font-size="8">Notification</text>
+  
+  <rect x="1290" y="420" width="120" height="80" fill="#E8F5E8" stroke="#388E3C" rx="5" ry="5"/>
+  <text x="1295" y="445" font-size="10" font-weight="bold">📈 Grafana</text>
+  <text x="1295" y="460" font-size="9">Dashboards</text>
+  <text x="1295" y="475" font-size="8">Visualization</text>
+  
+  <rect x="1430" y="420" width="120" height="80" fill="#E8F5E8" stroke="#388E3C" rx="5" ry="5"/>
+  <text x="1435" y="445" font-size="10" font-weight="bold">📊 Node Exporter</text>
+  <text x="1435" y="460" font-size="9">Metrics</text>
+  <text x="1435" y="475" font-size="8">System Monitor</text>
+
+  <!-- ==================== -->
+  <!-- VM4 - LOGGING ELK -->
+  <!-- ==================== -->
+  <rect x="150" y="750" width="500" height="500" fill="#E1BEE7" stroke="#7B1FA2" stroke-width="2" rx="8" ry="8"/>
+  <text x="160" y="770" font-size="14" font-weight="bold">🟣 Subnet Logging (10.0.4.0/24)</text>
+
+  <rect x="170" y="810" width="460" height="430" fill="#FFFFFF" stroke="#7B1FA2" stroke-width="2" rx="10" ry="10" filter="url(#shadow)"/>
+  <text x="180" y="830" font-size="12" font-weight="bold">🖥️ VM4 - ELK Stack (10.0.4.10)</text>
+  
+  <!-- Services ELK avec Logos -->
+  <rect x="190" y="860" width="120" height="80" fill="#F3E5F5" stroke="#7B1FA2" rx="5" ry="5"/>
+  <text x="195" y="885" font-size="10" font-weight="bold">🔍 Elasticsearch</text>
+  <text x="195" y="900" font-size="9">Search & Analytics</text>
+  <text x="195" y="915" font-size="8">Port: 9200</text>
+  
+  <rect x="320" y="860" width="120" height="80" fill="#F3E5F5" stroke="#7B1FA2" rx="5" ry="5"/>
+  <text x="325" y="885" font-size="10" font-weight="bold">⚡ Logstash</text>
+  <text x="325" y="900" font-size="9">Processing</text>
+  <text x="325" y="915" font-size="8">Data Pipeline</text>
+  
+  <rect x="190" y="950" width="120" height="80" fill="#F3E5F5" stroke="#7B1FA2" rx="5" ry="5"/>
+  <text x="195" y="975" font-size="10" font-weight="bold">📊 Kibana</text>
+  <text x="195" y="990" font-size="9">Visualization</text>
+  <text x="195" y="1005" font-size="8">Port: 5601</text>
+  
+  <rect x="320" y="950" width="120" height="80" fill="#F3E5F5" stroke="#7B1FA2" rx="5" ry="5"/>
+  <text x="325" y="975" font-size="10" font-weight="bold">📁 Filebeat</text>
+  <text x="325" y="990" font-size="9">Log Shipper</text>
+  <text x="325" y="1005" font-size="8">Data Collection</text>
+
+  <!-- ==================== -->
+  <!-- AZURE MANAGED SERVICES -->
+  <!-- ==================== -->
+  <rect x="700" y="750" width="1050" height="500" fill="#F5F5F5" stroke="#757575" stroke-width="2" rx="8" ry="8"/>
+  <text x="710" y="770" font-size="14" font-weight="bold">⚫ Azure Managed Services</text>
+
+  <!-- Application Insights -->
+  <rect x="720" y="820" width="300" height="100" fill="#E3F2FD" stroke="#0078D4" rx="8" ry="8"/>
+  <text x="730" y="840" font-size="11" font-weight="bold">🔍 Application Insights</text>
+  <text x="730" y="860" font-size="10" fill="#0078D4">📱 App Performance</text>
+  <text x="730" y="875" font-size="10" fill="#0078D4">🔍 Application MAP</text>
+  <text x="730" y="890" font-size="9">Live Metrics & Traces</text>
+
+  <!-- Log Analytics -->
+  <rect x="1040" y="820" width="300" height="100" fill="#E8F5E8" stroke="#388E3C" rx="8" ry="8"/>
+  <text x="1050" y="840" font-size="11" font-weight="bold">📊 Log Analytics</text>
+  <text x="1050" y="860" font-size="10" fill="#388E3C">📝 Log Query</text>
+  <text x="1050" y="875" font-size="10" fill="#388E3C">🔍 KQL Language</text>
+  <text x="1050" y="890" font-size="9">Advanced Analytics</text>
+
+  <!-- Azure Monitor -->
+  <rect x="1360" y="820" width="300" height="100" fill="#FFF3E0" stroke="#FFA000" rx="8" ry="8"/>
+  <text x="1370" y="840" font-size="11" font-weight="bold">📈 Azure Monitor</text>
+  <text x="1370" y="860" font-size="10" fill="#FFA000">📊 Metrics</text>
+  <text x="1370" y="875" font-size="10" fill="#FFA000">🚨 Alerts</text>
+  <text x="1370" y="890" font-size="9">Real-time Monitoring</text>
+
+  <!-- Storage Account -->
+  <rect x="720" y="940" width="300" height="100" fill="#F3E5F5" stroke="#7B1FA2" rx="8" ry="8"/>
+  <text x="730" y="960" font-size="11" font-weight="bold">💾 Storage Account</text>
+  <text x="730" y="980" font-size="10" fill="#7B1FA2">📁 Blob Storage</text>
+  <text x="730" y="995" font-size="10" fill="#7B1FA2">💿 Archive</text>
+  <text x="730" y="1010" font-size="9">Long-term Retention</text>
+
+  <!-- Key Vault -->
+  <rect x="1040" y="940" width="300" height="100" fill="#FFEBEE" stroke="#D32F2F" rx="8" ry="8"/>
+  <text x="1050" y="960" font-size="11" font-weight="bold">🔐 Key Vault</text>
+  <text x="1050" y="980" font-size="10" fill="#D32F2F">🔑 Secrets</text>
+  <text x="1050" y="995" font-size="10" fill="#D32F2F">🔒 Certificates</text>
+  <text x="1050" y="1010" font-size="9">Secure Storage</text>
+
+  <!-- Azure AD -->
+  <rect x="1360" y="940" width="300" height="100" fill="#E3F2FD" stroke="#1976D2" rx="8" ry="8"/>
+  <text x="1370" y="960" font-size="11" font-weight="bold">👥 Azure AD</text>
+  <text x="1370" y="980" font-size="10" fill="#1976D2">🔐 Authentication</text>
+  <text x="1370" y="995" font-size="10" fill="#1976D2">👮 RBAC</text>
+  <text x="1370" y="1010" font-size="9">Identity Management</text>
+
+  <!-- ==================== -->
+  <!-- EXTERNAL SERVICES -->
+  <!-- ==================== -->
+  <rect x="150" y="1280" width="350" height="100" fill="#FFF9C4" stroke="#FBC02D" rx="8" ry="8"/>
+  <text x="160" y="1300" font-size="12" font-weight="bold">🌐 Internet Clients</text>
+  <text x="160" y="1320" font-size="10">🖥️ Web Browsers</text>
+  <text x="160" y="1335" font-size="10">📱 Mobile Apps</text>
+  <text x="160" y="1350" font-size="10">🔗 External APIs</text>
+
+  <rect x="520" y="1280" width="350" height="100" fill="#E1BEE7" stroke="#7B1FA2" rx="8" ry="8"/>
+  <text x="530" y="1300" font-size="12" font-weight="bold">🐙 GitHub</text>
+  <text x="530" y="1320" font-size="10">⚡ GitHub Actions</text>
+  <text x="530" y="1335" font-size="10">📦 Package Registry</text>
+  <text x="530" y="1350" font-size="10">🔀 Version Control</text>
+
+  <rect x="890" y="1280" width="350" height="100" fill="#0078D4" stroke="#005A9E" rx="8" ry="8"/>
+  <text x="900" y="1300" font-size="12" font-weight="bold" fill="white">⚙️ Azure DevOps</text>
+  <text x="900" y="1320" font-size="10" fill="white">🔧 Pipelines</text>
+  <text x="900" y="1335" font-size="10" fill="white">📋 Boards</text>
+  <text x="900" y="1350" font-size="10" fill="white">🏗️ Repos</text>
+
+  <rect x="1260" y="1280" width="350" height="100" fill="#FF6D00" stroke="#E65100" rx="8" ry="8"/>
+  <text x="1270" y="1300" font-size="12" font-weight="bold" fill="white">🐧 Linux VM</text>
+  <text x="1270" y="1320" font-size="10" fill="white">🖥️ Ubuntu 20.04 LTS</text>
+  <text x="1270" y="1335" font-size="10" fill="white">🔧 Systemd Services</text>
+  <text x="1270" y="1350" font-size="10" fill="white">🛡️ Azure Security</text>
+
+  <!-- Shadow Filter -->
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="5" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+    <marker id="blueArrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L0,10 L10,5 z" fill="#2196F3"/>
+    </marker>
+    <marker id="orangeArrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L0,10 L10,5 z" fill="#FF9800"/>
+    </marker>
+  </defs>
+
+  <!-- ==================== -->
+  <!-- FLUX PRINCIPAUX -->
+  <!-- ==================== -->
+
+  <!-- Client → Kong -->
+  <path d="M325,1280 L325,1200 L800,1200 L800,330" stroke="#FF9800" stroke-width="3" fill="none" marker-end="url(#orangeArrow)"/>
+  <text x="500" y="1180" font-size="10" fill="#FF9800">🌐 HTTPS Traffic → Kong Gateway</text>
+
+  <!-- Kong → API -->
+  <path d="M740,330 L600,330" stroke="#FF9800" stroke-width="2" fill="none" marker-end="url(#orangeArrow)"/>
+  <text x="640" y="320" font-size="10" fill="#FF9800">🔄 API Gateway → Backend Services</text>
+
+  <!-- API → Databases -->
+  <path d="M320,420 L280,420 L280,480 L240,480" stroke="#4CAF50" stroke-width="2" fill="none" marker-end="url(#blueArrow)"/>
+  <text x="200" y="460" font-size="9" fill="#4CAF50">📝 API → MongoDB</text>
+
+  <path d="M320,420 L360,420 L360,480 L400,480" stroke="#4CAF50" stroke-width="2" fill="none" marker-end="url(#blueArrow)"/>
+  <text x="370" y="460" font-size="9" fill="#4CAF50">⚡ API → Redis</text>
+
+  <!-- Kong → PostgreSQL -->
+  <path d="M740,420 L880,420" stroke="#00796B" stroke-width="2" fill="none" marker-end="url(#blueArrow)"/>
+  <text x="780" y="410" font-size="9" fill="#00796B">💾 Kong → PostgreSQL</text>
+
+  <!-- Monitoring Flows -->
+  <path d="M320,330 L1290,330" stroke="#388E3C" stroke-width="2" fill="none" marker-end="url(#blueArrow)"/>
+  <text x="700" y="320" font-size="9" fill="#388E3C">📊 Metrics → Prometheus</text>
+
+  <path d="M740,330 L1290,330" stroke="#388E3C" stroke-width="2" fill="none" marker-end="url(#blueArrow)"/>
+  <text x="950" y="320" font-size="9" fill="#388E3C">📊 Kong Metrics → Prometheus</text>
+
+  <!-- Logging Flows -->
+  <path d="M320,500 L320,600 L270,810" stroke="#2196F3" stroke-width="2" fill="none" marker-end="url(#blueArrow)"/>
+  <text x="200" y="550" font-size="9" fill="#2196F3">📄 Logs → ELK Stack</text>
+
+  <path d="M880,500 L880,600 L470,810" stroke="#2196F3" stroke-width="2" fill="none" marker-end="url(#blueArrow)"/>
+  <text x="600" y="550" font-size="9" fill="#2196F3">📄 Kong Logs → ELK</text>
+
+  <!-- Légende des Technologies -->
+  <rect x="150" y="1400" width="1900" height="400" fill="#FFFFFF" stroke="#0078D4" rx="10" ry="10" filter="url(#shadow)"/>
+  <text x="170" y="1420" font-size="16" font-weight="bold" fill="#0078D4">🏷️ TECHNOLOGIES & LOGOS OFFICIELS</text>
+
+  <!-- Row 1: API Services -->
+  <text x="170" y="1450" font-size="12" font-weight="bold" fill="#1976D2">🔷 API SERVICES STACK</text>
+  <rect x="170" y="1460" width="150" height="30" fill="#E3F2FD" stroke="#1976D2" rx="3" ry="3"/>
+  <text x="175" y="1480" font-size="10">🟢 Nginx - Reverse Proxy</text>
+  <rect x="330" y="1460" width="150" height="30" fill="#E3F2FD" stroke="#1976D2" rx="3" ry="3"/>
+  <text x="335" y="1480" font-size="10">🐍 Flask - Python API</text>
+  <rect x="490" y="1460" width="150" height="30" fill="#FFCDD2" stroke="#D32F2F" rx="3" ry="3"/>
+  <text x="495" y="1480" font-size="10">🔴 Redis - Cache</text>
+  <rect x="650" y="1460" width="150" height="30" fill="#C8E6C9" stroke="#388E3C" rx="3" ry="3"/>
+  <text x="655" y="1480" font-size="10">🍃 MongoDB - Database</text>
+
+  <!-- Row 2: Kong Stack -->
+  <text x="170" y="1500" font-size="12" font-weight="bold" fill="#FFA000">🔶 KONG GATEWAY STACK</text>
+  <rect x="170" y="1510" width="150" height="30" fill="#FFF3E0" stroke="#FFA000" rx="3" ry="3"/>
+  <text x="175" y="1530" font-size="10">🦍 Kong - API Gateway</text>
+  <rect x="330" y="1510" width="150" height="30" fill="#FFF3E0" stroke="#FFA000" rx="3" ry="3"/>
+  <text x="335" y="1530" font-size="10">📊 Konga - Dashboard</text>
+  <rect x="490" y="1510" width="150" height="30" fill="#4DB6AC" stroke="#00796B" rx="3" ry="3"/>
+  <text x="495" y="1530" font-size="10">🐘 PostgreSQL - Database</text>
+
+  <!-- Row 3: Monitoring Stack -->
+  <text x="170" y="1550" font-size="12" font-weight="bold" fill="#388E3C">🔵 MONITORING STACK</text>
+  <rect x="170" y="1560" width="150" height="30" fill="#E8F5E8" stroke="#388E3C" rx="3" ry="3"/>
+  <text x="175" y="1580" font-size="10">🔥 Prometheus - Metrics</text>
+  <rect x="330" y="1560" width="150" height="30" fill="#E8F5E8" stroke="#388E3C" rx="3" ry="3"/>
+  <text x="335" y="1580" font-size="10">📈 Grafana - Dashboards</text>
+  <rect x="490" y="1560" width="150" height="30" fill="#E8F5E8" stroke="#388E3C" rx="3" ry="3"/>
+  <text x="495" y="1580" font-size="10">🚨 Alertmanager - Alerts</text>
+
+  <!-- Row 4: ELK Stack -->
+  <text x="170" y="1600" font-size="12" font-weight="bold" fill="#7B1FA2">🟣 ELK STACK</text>
+  <rect x="170" y="1610" width="150" height="30" fill="#F3E5F5" stroke="#7B1FA2" rx="3" ry="3"/>
+  <text x="175" y="1630" font-size="10">🔍 Elasticsearch - Search</text>
+  <rect x="330" y="1610" width="150" height="30" fill="#F3E5F5" stroke="#7B1FA2" rx="3" ry="3"/>
+  <text x="335" y="1630" font-size="10">⚡ Logstash - Processing</text>
+  <rect x="490" y="1610" width="150" height="30" fill="#F3E5F5" stroke="#7B1FA2" rx="3" ry="3"/>
+  <text x="495" y="1630" font-size="10">📊 Kibana - Visualization</text>
+
+  <!-- Row 5: Azure Services -->
+  <text x="170" y="1650" font-size="12" font-weight="bold" fill="#0078D4">🔵 AZURE SERVICES</text>
+  <rect x="170" y="1660" width="150" height="30" fill="#E3F2FD" stroke="#0078D4" rx="3" ry="3"/>
+  <text x="175" y="1680" font-size="10">🔍 App Insights - APM</text>
+  <rect x="330" y="1660" width="150" height="30" fill="#E8F5E8" stroke="#388E3C" rx="3" ry="3"/>
+  <text x="335" y="1680" font-size="10">📊 Log Analytics - Logs</text>
+  <rect x="490" y="1660" width="150" height="30" fill="#FFF3E0" stroke="#FFA000" rx="3" ry="3"/>
+  <text x="495" y="1680" font-size="10">📈 Azure Monitor - Metrics</text>
+
+  <!-- Row 6: External Services -->
+  <text x="170" y="1700" font-size="12" font-weight="bold" fill="#757575">⚫ EXTERNAL SERVICES</text>
+  <rect x="170" y="1710" width="150" height="30" fill="#FFF9C4" stroke="#FBC02D" rx="3" ry="3"/>
+  <text x="175" y="1730" font-size="10">🌐 Internet Clients</text>
+  <rect x="330" y="1710" width="150" height="30" fill="#E1BEE7" stroke="#7B1FA2" rx="3" ry="3"/>
+  <text x="335" y="1730" font-size="10">🐙 GitHub - CI/CD</text>
+  <rect x="490" y="1710" width="150" height="30" fill="#0078D4" stroke="#005A9E" rx="3" ry="3"/>
+  <text x="495" y="1730" font-size="10" fill="#0078D4">⚙️ Azure DevOps</text>
+
+</svg>
