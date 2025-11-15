@@ -4,4 +4,10 @@ This repository contains scripts and sources to deploy a Kong API Gateway + Flas
 
 ## Architecture
 
-![Azure Global Architecture](docs/images/archi-kong.png)
+### Kong Stack Architecture
+
+![Architecture diagram](docs/images/archi-kong.png)
+
+### Azure Global Architecture
+
+![Azure Global Architecture](docs/images/Azure_Global_Architecture_Interactive.png)
